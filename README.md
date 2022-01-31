@@ -117,17 +117,17 @@ a = 1075051947175156222147388524125648995470680266945080931975084294204329507177
 Trên bài có hỏi "a is a quadratic residual of p?". Điều kiện để cho a là thặng dư bậc 2 của p ![đk](thangdu.png)
 ```python
 from pwn import *
-host="45.77.39.59"
-port=3901
+host = "45.77.39.59"
+port = 3901
 r = remote(host,port)
 r.recvuntil(b"p = ")
-p=eval(r.recvline().strip().decode())
+p = eval(r.recvline().strip().decode())
 for i in range(100):
     r.recvuntil(b"a = ")
-    a=eval(r.recvuntil(b" ").strip().decode())
+    a = eval(r.recvuntil(b" ").strip().decode())
     r.recvuntil(b"residual? ")
-    a2=pow(a,(p-1)//2,p)
-    if a2==1:
+    a2 = pow(a,(p-1)//2,p)
+    if a2 == 1:
         r.sendline(b"YES")
     else:
         r.sendline(b"NO")
