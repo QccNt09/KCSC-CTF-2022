@@ -37,6 +37,7 @@ f = open("advanced_caesar_output.txt","w")
 print(ciphertext,file=f)
 ```
 advanced_caesar_output.txt
+
 ![out_put](caesar.png)
 
 Ban đầu đưa lên trên tool online [tool](https://www.dcode.fr/caesar-cipher) để dò key ![anh](anh1.png)
